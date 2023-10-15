@@ -49,34 +49,34 @@
 
 
 
-//   var tag = document.createElement('script');
-//   tag.src = 'https://www.youtube.com/iframe_api';
-//   var firstScriptTag = document.getElementsByTagName('script')[0];
-//   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-//   var player;
+  var player;
 
-//   function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//       height: '315',
-//       width: '560',
-//       videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
-//       playerVars: {
-//         'autoplay': 1,
-//         'loop': 1,
-//         'controls': 0,
-//         'showinfo': 0,
-//         'rel': 0
-//       },
-//       events: {
-//         'onReady': onPlayerReady
-//       }
-//     });
-//   }
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '315',
+      width: '560',
+      videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
+      playerVars: {
+        'autoplay': 1,
+        'loop': 1,
+        'controls': 0,
+        'showinfo': 0,
+        'rel': 0
+      },
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
 
-//   function onPlayerReady(event) {
-//     event.target.playVideo();
-//   }
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
 
 
 
