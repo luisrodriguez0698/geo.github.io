@@ -46,41 +46,129 @@
   }
 
 
+  document.addEventListener('DOMContentLoaded', function () {
+    modal.style.display = 'block';
+
+    // var tag = document.createElement('script');
+    // tag.src = 'https://www.youtube.com/iframe_api';
+    // var firstScriptTag = document.getElementsByTagName('script')[0];
+    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+    // var player;
+  
+    // function onYouTubeIframeAPIReady() {
+    //   player = new YT.Player('player', {
+    //     height: '315',
+    //     width: '560',
+    //     videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
+    //     playerVars: {
+    //       'autoplay': 1,
+    //       'loop': 1,
+    //       'controls': 0,
+    //       'showinfo': 0,
+    //       'rel': 0
+    //     },
+    //     events: {
+    //       'onReady': onPlayerReady
+    //     }
+    //   });
+    // }
+
+
+    
+    // function onPlayerReady(event) {
+    //     // No reproduzcas automáticamente aquí, esperaremos la interacción del usuario
+    //   }
+    
+    //   function playMusic() {
+    //     if (player) {
+    //       player.playVideo();
+    //     }
+    //   }
+ 
+  });
+
+
+//   function play(){
+
+//   }
 
 
 
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var openModalBtn = document.getElementById('openModalBtn');
+  var closeModalBtn = document.getElementById('closeModalBtn');
+  var modal = document.getElementById('myModal');
 
-  var player;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '315',
-      width: '560',
-      videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
-      playerVars: {
-        'autoplay': 1,
-        'loop': 1,
-        'controls': 0,
-        'showinfo': 0,
-        'rel': 0
-      },
-      events: {
-        'onReady': onPlayerReady
+  closeModalBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+
+      var player;
+
+      function initPlayer() {
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+        // Esperar a que la API de YouTube esté lista
+        window.onYouTubeIframeAPIReady = function () {
+          player = new YT.Player('player', {
+            height: '315',
+            width: '560',
+            videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
+            playerVars: {
+                'autoplay': 1,
+                'loop': 1,
+                'controls': 0,
+                'showinfo': 0,
+                'rel': 0
+            },
+            events: {
+              'onReady': onPlayerReady
+            }
+          });
+        };
       }
-    });
-  }
+    
+      function onPlayerReady(event) {
+        // El reproductor está listo, permitir la reproducción manual
+        document.getElementById('player').style.left = '0'; // Muestra el reproductor
+      }
 
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+  });
 
 
 
 
+    //   var tag = document.createElement('script');
+    //   tag.src = 'https://www.youtube.com/iframe_api';
+    //   var firstScriptTag = document.getElementsByTagName('script')[0];
+    //   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    //   var player;
+    
+    //   function onYouTubeIframeAPIReady() {
+    //     player = new YT.Player('player', {
+    //       height: '315',
+    //       width: '560',
+    //       videoId: 'PmN7aT_mBkY', // Reemplaza con el ID de tu video de YouTube
+    //       playerVars: {
+    //         'autoplay': 0,
+    //         'loop': 1,
+    //         'controls': 0,
+    //         'showinfo': 0,
+    //         'rel': 0
+    //       },
+    //       events: {
+    //         'onReady': onPlayerReady
+    //       }
+    //     });
+    //   }
+    
+    //   function onPlayerReady(event) {
+    //     event.target.playVideo();
+    //   }
 
   
   
